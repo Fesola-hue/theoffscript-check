@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="color-scheme" content="light only">
+<meta name="theme-color" content="#ffffff">
+<title>The OffScript Check</title>
+<meta name="description" content="Collect the Dossier. Case files on money, tech, social media, culture, entertainment, how things actually work, plus the story behind OffScript.">
+
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="The OffScript Dossier">
+<meta property="og:description" content="Seven case files. Seven little rabbit holes. Pick one, trust your gut.">
+<meta property="og:image" content="https://check.theoffscript.page/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://check.theoffscript.page/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The OffScript Dossier">
+<meta name="twitter:description" content="Seven case files. Seven little rabbit holes. Pick one, trust your gut.">
+<meta name="twitter:image" content="https://check.theoffscript.page/assets/og-image.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<!-- MailerLite Universal -->
+<script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '2329743');
+</script>
+<!-- End MailerLite Universal -->
+<style>
+  :root {
+    color-scheme: light only;
+    --white: #ffffff;
+    --ink: #1a1a1a;
+    --muted: #737373;
+    --muted-2: #a8a8a8;
+    --blue: #3457e8;
+    --blue-deep: #16215c;
+    --money: #1f9e6d;      --money-bg: #eafaf3;
+    --tech: #7c3fd6;       --tech-bg: #f5eefd;
+    --social: #0891b2;     --social-bg: #e6f6fa;
+    --culture: #e8455f;    --culture-bg: #fdeef1;
+    --ent: #c026d3;        --ent-bg: #fbeafc;
+    --howthings: #3457e8;  --howthings-bg: #eaeefd;
+    --story: #e0812f;      --story-bg: #fdf1e6;
+    --cream: #faf5eb;
+    --correct: #1f9e6d;
+    --wrong: #d13c3c;
+    --line: #ececec;
+    --line-2: #e0e0e0;
+    --money-deep: #146b49;  --tech-deep: #5a2a9e;   --social-deep: #066579;
+    --culture-deep: #ad2e42; --ent-deep: #8c1ba3;   --howthings-deep: #1e3aa8;
+    --story-deep: #a8621c;
+    --font-display: 'Space Grotesk', Georgia, 'Times New Roman', serif;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+  }
+
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; padding: 0; background: #ffffff !important; color-scheme: light only; }
+  body { min-height: 100vh; font-family: var(--font-sans); color: var(--ink); -webkit-font-smoothing: antialiased; }
+
+  ::selection { background: var(--blue); color: white; }
+  a { color: inherit; }
+  button { font-family: inherit; cursor: pointer; }
+
+  #app { min-height: 100vh; background: #ffffff; position: relative; }
+
+  /* Fine paper grain, sits over everything at very low opacity so color stays true */
+  body::after {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 999;
+    opacity: 0.05; mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.18em; color: var(--muted); text-transform: uppercase;
+  }
+
+  .topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    max-width: 640px; margin: 0 auto; padding: 18px 20px 0;
+  }
+  .back-link, .home-link {
+    font-family: var(--font-mono); font-size: 12px; color: var(--muted);
+    text-decoration: none; border: 1px solid var(--line-2); border-radius: 999px;
+    padding: 7px 14px; background: none;
+    transition: color 0.15s, border-color 0.15s, background 0.15s;
+  }
+  .back-link:hover, .home-link:hover { color: var(--ink); border-color: #c9c9c9; background: var(--cream); }
+
+  /* ---------- HUB ---------- */
+  @keyframes reveal-up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+  .intro-reveal { opacity: 0; animation: reveal-up 0.7s cubic-bezier(0.16,1,0.3,1) both; }
+
+  .hub-title {
+    margin-top: 14px; font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(2.1rem, 8.5vw, 3rem); line-height: 1.05; letter-spacing: -0.02em;
+  }
+  .hub-title .dot-o { color: var(--blue); }
+  .hub-sub { margin: 14px auto 0; max-width: 340px; font-size: 15.5px; line-height: 1.55; color: var(--muted); }
+
+  .dossier-meter {
+    margin: 28px auto 4px; display: inline-flex; align-items: center; gap: 12px; justify-content: center; flex-wrap: wrap;
+    background: white; border: 1.5px dashed #cfc6ac; border-radius: 10px; padding: 10px 16px;
+    transform: rotate(-1.2deg); box-shadow: 0 2px 0 rgba(0,0,0,0.03);
+  }
+  .dossier-meter-label { font-family: var(--font-mono); font-size: 12px; font-weight: 700; color: var(--ink); white-space: nowrap; }
+  .dossier-dots { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
+  .dossier-dot { width: 9px; height: 9px; border-radius: 999px; background: var(--line-2); transition: background 0.2s, transform 0.2s; }
+  .dossier-dot.filled { background: var(--blue); }
+
+  .complete-banner { margin: 22px auto 0; max-width: 420px; background: var(--blue-deep); color: white; border-radius: 18px; padding: 20px 20px 18px; text-align: center; }
+  .complete-banner .cb-eyebrow { font-family: var(--font-mono); font-size: 10.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #8f9bd6; margin-bottom: 8px; }
+  .complete-banner .cb-title { font-family: var(--font-display); font-weight: 700; font-size: 19px; line-height: 1.25; margin-bottom: 8px; }
+  .complete-banner .cb-sub { font-size: 13px; line-height: 1.5; color: #c9d2f5; margin-bottom: 16px; }
+  .complete-banner .btn-primary { margin-top: 0; margin-bottom: 10px; }
+  .complete-banner .btn-share-dossier { background: none; border: 1px solid rgba(255,255,255,0.3); color: #c9d2f5; border-radius: 12px; padding: 10px 16px; font-weight: 600; font-size: 12.5px; }
+
+  /* Full-screen scroll-snap feed: one file per screen, scroll to the next */
+  .feed { height: 100vh; height: 100dvh; overflow-y: auto; scroll-snap-type: y mandatory; -webkit-overflow-scrolling: touch; }
+  .feed-slide {
+    min-height: 100vh; min-height: 100dvh; scroll-snap-align: start; scroll-snap-stop: always;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 60px 26px 40px; position: relative; text-align: center;
+  }
+
+  .intro-slide {
+    background-color: var(--cream);
+    background-image: radial-gradient(circle, #e3ddcb 1.3px, transparent 1.3px);
+    background-size: 22px 22px;
+    justify-content: flex-start;
+    padding-top: 96px;
+  }
+  .intro-content { position: relative; z-index: 1; width: 100%; }
+  .intro-back { position: absolute; top: 18px; left: 18px; z-index: 2; }
+  .intro-back, .intro-slide .home-link { background: var(--cream); }
+
+  .feed-index {
+    position: absolute; top: 20px; right: 20px; font-family: var(--font-mono);
+    font-size: 11.5px; font-weight: 700; letter-spacing: 0.08em;
+  }
+  .intro-slide .feed-index { color: var(--muted-2); }
+  .file-slide .feed-index { color: rgba(255,255,255,0.8); }
+  .intro-slide .feed-hint { animation: reveal-up 0.7s cubic-bezier(0.16,1,0.3,1) 0.4s both; }
+
+  .file-slide { color: white; }
+
+  .feed-check {
+    position: absolute; top: 18px; left: 20px; width: 30px; height: 30px; border-radius: 999px;
+    background: rgba(255,255,255,0.22); color: white; display: none; align-items: center; justify-content: center;
+    font-size: 15px; font-weight: 700; z-index: 2;
+  }
+  .file-slide.done .feed-check { display: flex; }
+
+  /* Stacked card, same shape language as the quiz question card */
+  .file-card-stack { position: relative; width: 100%; max-width: 360px; }
+  .file-card-stack::before, .file-card-stack::after {
+    content: ""; position: absolute; inset: 0; background: white; border-radius: 26px; z-index: 0;
+  }
+  .file-card-stack::before { transform: rotate(-3deg) translateY(4px); }
+  .file-card-stack::after { transform: rotate(3deg) translateY(7px); opacity: 0.8; }
+  .file-card {
+    position: relative; z-index: 1; background: white; border-radius: 26px;
+    padding: 34px 26px 30px; box-shadow: 0 3px 0 rgba(0,0,0,0.05);
+  }
+  .folder-tab {
+    position: absolute; top: -15px; left: 28px; z-index: 2; color: white;
+    font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: 0.08em;
+    padding: 7px 13px 9px; border-radius: 8px 8px 2px 2px; transform: rotate(-2.5deg);
+    background: var(--card-accent-deep, var(--blue-deep));
+  }
+
+  .feed-kicker {
+    display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-mono);
+    font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--card-accent, var(--blue));
+  }
+  .feed-emoji { font-size: 34px; display: block; margin-top: 12px; }
+  .feed-title { margin-top: 10px; font-family: var(--font-display); font-weight: 700; font-size: clamp(1.5rem, 6.5vw, 1.9rem); letter-spacing: -0.01em; color: var(--ink); }
+  .feed-hook { margin: 14px 0 0; font-family: var(--font-display); font-weight: 700; font-size: clamp(1rem, 4.2vw, 1.2rem); line-height: 1.35; color: var(--ink); }
+  .feed-hook + .feed-hook { margin-top: 4px; }
+  .feed-blurb { margin: 10px 0 0; font-size: 14px; line-height: 1.55; color: var(--muted); }
+  .feed-hook + .feed-blurb { margin-top: 14px; }
+  .feed-blurb + .feed-blurb { margin-top: 8px; }
+  .feed-meta {
+    margin-top: 18px; font-family: var(--font-mono); font-size: 11.5px; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--muted-2);
+  }
+  .feed-open-btn {
+    margin-top: 18px; width: 100%; background: var(--card-accent, var(--blue)); color: white; border: none; border-radius: 14px;
+    padding: 15px 26px; font-weight: 800; font-size: 15px; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    transition: transform 0.1s ease, filter 0.15s ease;
+  }
+  .feed-open-btn:hover { filter: brightness(1.08); }
+  .feed-open-btn:active { transform: scale(0.97); }
+
+  .feed-hint {
+    position: absolute; bottom: 26px; left: 0; right: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 5px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.05em;
+  }
+  .chevron-stack { display: flex; flex-direction: column; align-items: center; gap: 3px; height: 16px; margin-top: 2px; }
+  .chevron-stack i {
+    display: block; width: 7px; height: 7px; border-style: solid; border-color: currentColor;
+    border-width: 0 2px 2px 0; animation: chevron-fade 1.5s ease-in-out infinite;
+  }
+  .chevron-stack i:nth-child(2) { animation-delay: 0.14s; }
+  .chevron-stack i:nth-child(3) { animation-delay: 0.28s; }
+  @keyframes chevron-fade {
+    0%, 100% { opacity: 0.18; transform: rotate(45deg) translate(0,0); }
+    45% { opacity: 1; transform: rotate(45deg) translate(2px,2px); }
+  }
+
+  /* Fanned case-file tab preview, teases the 7 files before you've opened any */
+  .tab-preview { display: flex; justify-content: center; gap: 7px; margin-top: 36px; }
+  .tab-chip {
+    width: 32px; height: 38px; border-radius: 7px 7px 3px 3px; display: flex; align-items: center; justify-content: center;
+    font-size: 15px; box-shadow: 0 2px 0 rgba(0,0,0,0.1); flex-shrink: 0;
+  }
+  .tab-chip:nth-child(odd) { transform: rotate(-5deg) translateY(3px); }
+  .tab-chip:nth-child(even) { transform: rotate(5deg) translateY(-2px); }
+  .tab-chip:nth-child(3n) { transform: rotate(-2deg) translateY(0); }
+  .intro-slide .feed-hint { color: var(--muted-2); position: static; margin-top: 18px; }
+  .file-slide .feed-hint { color: rgba(255,255,255,0.7); }
+
+  .story-slide { background: var(--story); color: white; }
+
+  /* ---------- QUIZ (stacked card + big scrollable options) ---------- */
+  .quiz-shell { max-width: 560px; margin: 0 auto; padding: 20px 20px 60px; }
+  .file-badge {
+    display: inline-flex; align-items: center; gap: 7px; background: var(--accent); color: white;
+    font-family: var(--font-mono); font-size: 11.5px; font-weight: 700; letter-spacing: 0.08em;
+    padding: 7px 13px; border-radius: 999px;
+  }
+  .quiz-topbar { display: flex; align-items: center; justify-content: space-between; margin: 18px 0 20px; }
+  .segments { display: flex; gap: 5px; flex: 1; margin-left: 14px; }
+  .segment { flex: 1; height: 6px; border-radius: 999px; background: var(--line); overflow: hidden; }
+  .segment > i { display: block; height: 100%; width: 0%; background: var(--accent); border-radius: 999px; transition: width 0.35s ease; }
+
+  .card-stack { position: relative; margin-top: 4px; }
+  .card-stack::before, .card-stack::after {
+    content: ""; position: absolute; inset: 0; background: white; border: 1.5px solid var(--line-2);
+    border-radius: 22px; z-index: 0;
+  }
+  .card-stack::before { transform: rotate(-2.5deg) translateY(3px); }
+  .card-stack::after { transform: rotate(2.5deg) translateY(5px); opacity: 0.75; }
+
+  .question-card { position: relative; z-index: 1; background: white; border: 1.5px solid var(--line-2); border-radius: 22px; padding: 22px 18px; box-shadow: 0 2px 0 var(--line-2); }
+  .question-text { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.3rem, 5.2vw, 1.7rem); line-height: 1.26; letter-spacing: -0.01em; margin: 0 0 22px; color: var(--ink); }
+
+  .scroll-hint {
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+    font-family: var(--font-mono); font-size: 11px; color: var(--muted-2); margin: 4px 0 14px;
+    animation: bob 1.6s ease-in-out infinite;
+  }
+  @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(3px); } }
+
+  .options { display: flex; flex-direction: column; gap: 16px; }
+
+  .option-card {
+    position: relative;
+    text-align: left;
+    background: var(--white);
+    border: 1.5px solid var(--line-2);
+    border-radius: 18px;
+    padding: 20px 18px;
+    min-height: 88px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: border-color 0.15s, background 0.15s, transform 0.1s, box-shadow 0.15s;
+    box-shadow: 0 1px 0 var(--line);
+  }
+  .option-card:not(.locked):hover { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 5%, white); transform: translateY(-1px); box-shadow: 0 6px 14px rgba(0,0,0,0.06); }
+  .option-card:not(.locked):active { transform: scale(0.99); }
+
+  .option-letter {
+    font-family: var(--font-mono); font-size: 14px; font-weight: 700; color: var(--muted);
+    width: 32px; height: 32px; border-radius: 10px; border: 1.5px solid var(--line-2);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    transition: border-color 0.15s, background 0.15s, color 0.15s;
+  }
+  .opt-label { font-size: 16px; font-weight: 500; line-height: 1.4; }
+
+  .option-card.locked { cursor: default; }
+  .option-card.correct { border-color: var(--correct); background: #eafaf3; }
+  .option-card.correct .option-letter { border-color: var(--correct); background: var(--correct); color: white; }
+  .option-card.wrong { border-color: var(--wrong); background: #fdeeee; }
+  .option-card.wrong .option-letter { border-color: var(--wrong); background: var(--wrong); color: white; }
+  .option-card.wrong .opt-label { text-decoration: line-through; text-decoration-color: rgba(209,60,60,0.55); }
+  .option-card.locked:not(.correct):not(.wrong) { opacity: 0.4; }
+
+  .context-panel { max-height: 0; opacity: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.65,0,0.35,1), opacity 0.3s ease; }
+  .context-panel.visible { max-height: 460px; opacity: 1; margin-top: 20px; }
+  .stamp { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-display); font-weight: 700; font-size: 12.5px; padding: 6px 13px; border-radius: 999px; transform: rotate(-2deg); margin-bottom: 10px; }
+  .stamp.is-correct { background: var(--correct); color: white; }
+  .stamp.is-wrong { background: var(--accent); color: white; }
+  .context-inner { background: var(--cream); border-radius: 15px; padding: 15px 16px 16px; }
+  .context-text { font-size: 14px; line-height: 1.6; color: #4a4a4a; margin: 0; }
+
+  .btn-next, .btn-primary {
+    margin-top: 18px; width: 100%; background: var(--accent, var(--blue)); color: white; border: none;
+    border-radius: 14px; padding: 16px; font-weight: 700; font-size: 15px;
+    transition: filter 0.15s ease, transform 0.1s; display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none;
+  }
+  .btn-next:hover, .btn-primary:hover { filter: brightness(1.08); }
+  .btn-next:active, .btn-primary:active { transform: scale(0.98); }
+
+  /* ---------- FILE COMPLETE ---------- */
+  .complete-shell { max-width: 460px; margin: 0 auto; padding: 50px 24px 50px; text-align: center; position: relative; }
+  .confetti-layer { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+  .confetti-piece { position: absolute; top: 40%; left: 50%; font-size: 20px; opacity: 0; animation: burst 0.9s ease-out forwards; }
+  @keyframes burst { 0% { opacity: 1; transform: translate(-50%,-50%) translate(0,0) rotate(0deg) scale(0.6); } 100% { opacity: 0; transform: translate(-50%,-50%) translate(var(--dx), var(--dy)) rotate(var(--rot)) scale(1); } }
+  .stamp-badge { display: inline-flex; align-items: center; justify-content: center; width: 92px; height: 92px; border-radius: 999px; background: var(--accent); color: white; font-size: 40px; transform: rotate(-6deg); box-shadow: 0 10px 24px rgba(0,0,0,0.15); }
+  .complete-score { margin-top: 18px; font-family: var(--font-mono); font-size: 12.5px; font-weight: 700; letter-spacing: 0.05em; color: var(--muted-2); text-transform: uppercase; }
+  .complete-score b { color: var(--accent); }
+  .complete-title { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.6rem,6.4vw,2.05rem); line-height: 1.18; margin: 10px 0 12px; color: var(--accent); }
+  .complete-body { font-size: 15.5px; line-height: 1.6; color: #4a4a4a; max-width: 400px; margin: 0 auto 26px; }
+  .share-row { display: flex; gap: 10px; width: 100%; margin-top: 22px; margin-bottom: 12px; }
+  .btn-share { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; border-radius: 13px; padding: 14px 10px; font-weight: 700; font-size: 13.5px; border: 1.5px solid var(--line-2); background: white; color: var(--ink); transition: border-color 0.15s, background 0.15s, transform 0.1s; }
+  .btn-share:hover { border-color: #b8b8b8; background: var(--cream); }
+  .btn-share:active { transform: scale(0.97); }
+  .btn-ghost { display: block; margin: 14px auto 0; background: none; border: none; color: var(--muted-2); font-size: 13px; font-family: var(--font-mono); text-decoration: underline; text-underline-offset: 3px; }
+  .btn-ghost + .btn-ghost { margin-top: 10px; }
+  @media (max-width: 380px) { .share-row { flex-direction: column; } }
+
+  /* ---------- STORY ---------- */
+  .story-shell { max-width: 560px; margin: 0 auto; padding: 20px 22px 60px; }
+  .story-kicker { display: inline-flex; align-items: center; gap: 7px; background: var(--story); color: white; font-family: var(--font-mono); font-size: 11.5px; font-weight: 700; letter-spacing: 0.08em; padding: 7px 13px; border-radius: 999px; margin-top: 18px; }
+  .story-title { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.8rem, 7vw, 2.4rem); line-height: 1.12; letter-spacing: -0.01em; margin: 16px 0 6px; }
+  .story-byline { font-size: 13.5px; color: var(--muted); margin-bottom: 24px; }
+  .story-body { font-size: 16.5px; line-height: 1.75; color: #2b2b2b; }
+  .story-body p { margin: 0 0 18px; }
+  .story-cta { margin-top: 32px; border-top: 1px solid var(--line); padding-top: 26px; text-align: center; }
+  .story-cta p { color: var(--muted); font-size: 14px; margin-bottom: 14px; }
+
+  /* ---------- JOIN SCREEN (its own full in-app screen, not an inline reveal) ---------- */
+  .join-shell { max-width: 460px; margin: 0 auto; padding: 20px 22px 60px; text-align: center; min-height: calc(100vh - 60px); display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .join-kicker { display: inline-flex; align-items: center; gap: 7px; background: var(--blue); color: white; font-family: var(--font-mono); font-size: 11.5px; font-weight: 700; letter-spacing: 0.08em; padding: 7px 13px; border-radius: 999px; }
+  .join-title { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.7rem, 6.5vw, 2.2rem); line-height: 1.15; letter-spacing: -0.01em; margin: 16px 0 8px; }
+  .join-sub { font-size: 15px; line-height: 1.6; color: var(--muted); max-width: 340px; margin: 0 auto 28px; }
+  .join-slot { width: 100%; text-align: left; }
+  .join-slot .ml-embedded { width: 100%; }
+  /* Best-effort styling to blend MailerLite's generated form into the card. MailerLite's own
+     form editor controls the actual look, so nudge it toward the site's tokens rather than
+     assume an exact structure. */
+  .join-slot form { display: flex; flex-direction: column; gap: 10px; }
+  .join-slot input[type="email"], .join-slot input[type="text"] {
+    width: 100%; box-sizing: border-box; font-family: var(--font-sans); font-size: 15px;
+    padding: 14px 16px; border-radius: 12px; border: 1.5px solid var(--line-2); background: white; color: var(--ink);
+  }
+  .join-slot button, .join-slot input[type="submit"] {
+    width: 100%; border: none; border-radius: 14px; padding: 15px; font-weight: 800; font-size: 15px;
+    background: var(--blue); color: white; font-family: var(--font-sans); cursor: pointer;
+  }
+  /* True last-resort: only appears if the embed still hasn't rendered anything shortly after reveal */
+  .join-fallback-link {
+    display: inline-block; margin-top: 10px; font-family: var(--font-mono); font-size: 12px; font-weight: 600;
+    color: var(--muted-2); text-decoration: underline; text-underline-offset: 3px;
+  }
+
+  /* ---------- GAP CALLOUT (second miss in a file) ---------- */
+  .gap-callout {
+    margin-top: 10px; font-family: var(--font-mono); font-size: 12px; font-weight: 600;
+    color: var(--wrong); background: #fdeeee; border: 1px dashed rgba(209,60,60,0.35);
+    border-radius: 10px; padding: 9px 12px; line-height: 1.5; text-align: left;
+  }
+
+  /* ---------- INLINE EMAIL CAPTURE (opens the join page in a new tab) ---------- */
+  .capture-block { margin-top: 18px; width: 100%; text-align: left; }
+  .capture-cta {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    width: 100%; box-sizing: border-box; background: var(--accent, var(--blue)); color: white;
+    border: none; border-radius: 14px; padding: 16px; font-weight: 800; font-size: 15px;
+    font-family: var(--font-sans); cursor: pointer; text-decoration: none;
+  }
+  .complete-banner .capture-cta { background: white; color: var(--blue-deep); }
+
+  @media (prefers-reduced-motion: reduce) { * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; } }
+</style>
+</head>
+<body>
+
+<div id="app"></div>
+
+<script>
+(function () {
+  "use strict";
+
+  var STORAGE_KEY = "offscript_dossier_v2";
+
+  var CASE_FILES = {
+    money: {
+      id: "money", title: "Money", emoji: "\uD83D\uDCB0", accent: "var(--money)", tileBg: "var(--money-bg)",
+      hook: ["You think you\u2019re good with money? Let\u2019s test that."],
+      blurb: [],
+      tagline: "5 questions \u00b7 probably less than 3 minutes",
+      questions: [
+        { question: "When people say \u201cthe naira floated,\u201d what actually happened?",
+          options: ["Government printed more naira", "The central bank stopped fixing the exchange rate and let the market decide it", "Nigeria adopted the dollar", "Naira became a cryptocurrency"],
+          correct: 1, context: "The old exchange rate was a number the government set by decree. The new one moves with supply and demand, recalculated constantly by the market. That's the entire shift, from a fixed price to a floating one.",
+          gapLine: "the naira floating just means the government stopped fixing the exchange rate and let the market decide it" },
+        { question: "Everyone said \u201csubsidy don end.\u201d What was actually being subsidized?",
+          options: ["Electricity", "Data and airtime", "Fuel, government was covering part of the real cost of importing and selling it", "Rice"],
+          correct: 2, context: "The government used to cover part of what it actually costs to import and sell fuel, which kept the pump price artificially low. Once that stopped, the price caught up to the real cost. Fuel didn't get more expensive to produce, you just started paying what it always cost.",
+          gapLine: "the fuel subsidy was never about electricity or data, it was government eating part of the real import cost" },
+        { question: "Someone holding $500 in dollar investments says \u201conce the naira goes up, my money will be worth even more.\u201d Are they right?",
+          options: ["Yes, a stronger naira makes their dollar savings worth more in naira", "No, a stronger naira actually means their $500 converts to fewer naira, not more", "It has no effect either way", "Only banks are affected by naira strength"],
+          correct: 1, context: "If $1 drops from \u20a61,500 to \u20a61,000, the naira has gotten stronger, and that $500 now converts to \u20a6250,000 less than it used to. People holding dollars actually benefit when the naira is weak, not when it's strong. It's the opposite of what most people assume.",
+          gapLine: "when the naira gets STRONGER, your dollar savings are actually worth less in naira, not more" },
+        { question: "Someone says \u201cinflation is high right now.\u201d What does that actually mean?",
+          options: ["Prices are falling", "The rate at which prices are rising is high, prices are still going up, just faster", "The government owes more money than usual", "The stock market crashed"],
+          correct: 1, context: "Inflation measures how fast prices are rising, not whether they're rising. So 'falling inflation' doesn't mean prices are coming down, it means they're climbing more slowly than before. They're still going up.",
+          gapLine: "'high inflation' doesn't mean prices are falling, it means they're still climbing, just faster" },
+        { question: "A friend says \u201cI'm keeping my savings in dollars because dollars don't inflate.\u201d Is that fully true?",
+          options: ["Yes, dollars never lose value", "No, the US has its own inflation too, it's just historically been slower than naira's", "No, dollars are actually worth less than naira", "Only pounds sterling avoid inflation"],
+          correct: 1, context: "Dollars lose value over time too, the US has its own inflation. It's just historically been slower and steadier than the naira's. Holding dollars isn't immunity from inflation, it's a slower rate of it.",
+          gapLine: "dollars aren't immune to inflation either, the US just has a slower one" }
+      ]
+    },
+    tech: {
+      id: "tech", title: "Tech", emoji: "\uD83D\uDCBB", accent: "var(--tech)", tileBg: "var(--tech-bg)",
+      hook: ["Your phone knows a LOT about you."],
+      blurb: [],
+      tagline: "5 questions \u00b7 no tech degree required",
+      questions: [
+        { question: "When an AI chatbot answers you, where's that answer actually coming from?",
+          options: ["A live search happening in that moment", "Patterns learned from huge amounts of text during training, not a live lookup", "A person typing it in real time", "A random word generator"],
+          correct: 1, context: "It's not searching for the answer in the moment. It's predicting the most likely next word based on patterns it picked up during training. That's also why it can state something wrong with total confidence, it's not aware of what it doesn't know.",
+          gapLine: "an AI chatbot isn't searching for your answer live, it's predicting the next word from patterns" },
+        { question: "What does it actually mean when an app is \u201cend-to-end encrypted\u201d?",
+          options: ["Only you and the person you're messaging can read it, not even the app company", "The app has a strong password", "Messages delete themselves after being read", "The app removes ads for you"],
+          correct: 0, context: "Your message gets encrypted on your phone and only decrypted on the recipient's. In theory, nobody in between, not even the company running the app, can read what it says.",
+          gapLine: "'end-to-end encrypted' means not even the app company can read your messages" },
+        { question: "What does a VPN actually do?",
+          options: ["Makes your internet permanently faster", "Routes your internet through another server, masking your location and encrypting your traffic", "Removes all ads from every app", "Gives you unlimited mobile data"],
+          correct: 1, context: "A VPN sends your traffic through a server somewhere else first, which is what hides your real location and encrypts what you're sending. That extra hop usually slows your connection down a little rather than speeding it up, which surprises most people.",
+          gapLine: "a VPN usually slows your connection down, it doesn't make it faster" },
+        { question: "When people talk about storing something \u201cin the cloud,\u201d what does that actually mean?",
+          options: ["It's stored on your phone but hidden", "It's stored on someone else's servers, in a data centre somewhere, not literally in the sky", "It only exists temporarily", "It's stored using satellite technology"],
+          correct: 1, context: "'The cloud' is just someone else's servers, sitting in a data centre somewhere, that you're renting storage space on. Nothing about it is actually up in the sky.",
+          gapLine: "'the cloud' is just someone else's servers in a data centre, not literally the sky" },
+        { question: "A hyper-realistic photo of a public figure doing something outrageous is going viral. No news outlet is reporting it. What's the most likely explanation?",
+          options: ["News outlets are covering it up", "It's most likely AI-generated, image tools can now fake near-photorealistic photos in seconds", "It only happened abroad so nobody local reported it", "It happened too recently to make the news"],
+          correct: 1, context: "Image generators have gotten good enough to fake a convincing photo in seconds, no design skills required. And virality was never proof of truth anyway, a fake spreads exactly as fast as a real one, sometimes faster because it's more outrageous.",
+          gapLine: "a viral photo with zero news coverage is probably AI-generated, not covered up" }
+      ]
+    },
+    social: {
+      id: "social", title: "Social Media", emoji: "\uD83D\uDCF1", accent: "var(--social)", tileBg: "var(--social-bg)",
+      hook: ["You scroll. They learn."],
+      blurb: [],
+      tagline: "5 questions \u00b7 let\u2019s get a little nosy",
+      questions: [
+        { question: "What does it actually mean when someone says a post got \u201cshadowbanned\u201d?",
+          options: ["The post was deleted", "The account got suspended", "The content is quietly shown to fewer people, with no notice given to the poster", "Everyone blocked them"],
+          correct: 2, context: "There's no notice and no explanation, your reach just quietly drops. It's designed to be invisible, which is exactly why it's so hard for anyone to prove it's actually happening to them.",
+          gapLine: "a 'shadowban' means your reach quietly drops with zero notice, not that you got deleted" },
+        { question: "A tweet or TikTok crosses 200,000 likes. Does that mean the information in it is accurate?",
+          options: ["Yes, that many people can't be wrong", "Not necessarily, virality measures how much a post resonates or spreads, not whether it's true", "Only if it's from a verified account", "Yes, as long as it has screenshots attached"],
+          correct: 1, context: "Platforms rank content by how fast it gets a reaction, not by whether it's accurate. A confidently wrong post will almost always outperform a boring correct one. A like count tells you how much something resonated, not whether it's true.",
+          gapLine: "200k likes measures how much a post resonated, not whether it's true" },
+        { question: "What does a blue checkmark actually verify on most platforms today?",
+          options: ["That the account belongs to a real, notable public figure", "On many platforms today, mainly that someone paid for a subscription", "That the content has been fact-checked", "That the account has over a million followers"],
+          correct: 1, context: "Verification used to mean a platform had confirmed you were a real, notable person. On most platforms today, it mostly just means you're paying a subscription. It's not really a marker of credibility anymore.",
+          gapLine: "on most platforms now, the blue check mostly just means someone's paying a subscription" },
+        { question: "Why does your \u201cFor You\u201d page seem to know exactly what you're into?",
+          options: ["Someone is manually curating it for you", "It tracks what you linger on, rewatch, and engage with, then shows you more of that", "It's random and you're just noticing patterns", "It only shows content from accounts you follow"],
+          correct: 1, context: "It's not reading your mind, it's reading your behaviour, what you linger on, rewatch, tap into. Pause on something two extra seconds and the algorithm logs that as interest, whether you meant it that way or not.",
+          gapLine: "the algorithm isn't reading your mind, it's reading what you linger on for two extra seconds" },
+        { question: "A post ends with \u201ccomment YES if you agree\u201d or \u201ctype AMEN.\u201d Why do creators actually do that?",
+          options: ["They genuinely want to know your opinion", "Comments signal the algorithm to push the post to more people, so the ask is about reach, not your answer", "It's required by the platform's community guidelines", "It helps the creator win a competition"],
+          correct: 1, context: "The algorithm reads comments as a stronger signal than likes, so a cheap prompt like that can push a post to way more people. It's not curiosity about your opinion, it's a lever for reach. You're not answering a question, you're feeding a metric.",
+          gapLine: "'comment YES if you agree' exists to farm engagement for the algorithm, not your opinion" }
+      ]
+    },
+    culture: {
+      id: "culture", title: "Culture", emoji: "\uD83C\uDFAD", accent: "var(--culture)", tileBg: "var(--culture-bg)",
+      hook: ["You know this one. Right?"],
+      blurb: [],
+      tagline: "5 questions \u00b7 trust your gut",
+      questions: [
+        { question: "What actually turned \u201cjapa\u201d into an economic story, not just slang?",
+          options: ["It's just people going on holiday", "A sustained wave of Nigerians relocating abroad for work, study or opportunity, not a one off trip", "A new visa category", "A political party's campaign slogan"],
+          correct: 1, context: "It shows up in remittance figures, in brain-drain conversations, in actual migration data. It's not a meme or a punchline, it's a real demographic shift with real economic consequences.",
+          gapLine: "'japa' shows up in real migration and remittance data, it's not just a meme" },
+        { question: "What makes \u201cDetty December\u201d a real economic event and not just a party season?",
+          options: ["Government declared it a public holiday month", "The scale of diaspora Nigerians returning home to spend, propping up hospitality and events for weeks", "A new tax was introduced", "Airlines started giving free tickets"],
+          correct: 1, context: "Hotels, restaurants and event businesses build a real chunk of their yearly revenue targets around those few weeks. That's how much money actually moves through the economy when the diaspora comes home.",
+          gapLine: "Detty December is diaspora spending that actually props up hotels and events for weeks" },
+        { question: "Beyond \u201ceveryone matching,\u201d what's the actual economic function of aso-ebi?",
+          options: ["Pure fashion, no deeper function", "A way guests directly help fund the event, since the celebrant often sells them the fabric", "A government uniform requirement for weddings", "A colonial-era law still on the books"],
+          correct: 1, context: "The celebrant sells the fabric to guests, and that money helps cover what hosting the event actually costs. It was never only about everyone matching, it's a built-in way for guests to help fund the celebration.",
+          gapLine: "aso-ebi fabric sales are literally how guests help fund the event, not just matching outfits" },
+        { question: "\u201cSoft life\u201d gets called an aesthetic, but what's the actual shift it describes?",
+          options: ["Just a fashion trend", "A pushback against hustle culture, treating ease and rest as success itself, not only money earned through struggle", "A government wellness initiative", "A skincare routine going viral"],
+          correct: 1, context: "Underneath the aesthetic is an actual argument: that constant hustle shouldn't be the only accepted path to a good life, and that rest and ease count as success too. The soft-life images are just what that argument looks like online.",
+          gapLine: "'soft life' is really an argument that rest counts as success too, not just a fashion trend" },
+        { question: "A skit maker's video has the actors suddenly, randomly using one specific drink or phone brand mid-scene. What's actually going on?",
+          options: ["They just happen to like that brand", "It's a paid brand integration, dressed up as a joke so it doesn't feel like an ad", "The platform auto-inserts random products", "It's a government-mandated product placement rule"],
+          correct: 1, context: "Skits are one of the cheapest, highest-trust ad formats brands have right now, a joke doesn't feel like a pitch, so people's guard is down. That 'random' product moment is usually a paid line in a contract, not the creator's actual taste.",
+          gapLine: "that 'random' product mid-skit is a paid brand deal wearing a joke as a disguise" }
+      ]
+    },
+    entertainment: {
+      id: "entertainment", title: "Entertainment", emoji: "\uD83C\uDFAC", accent: "var(--ent)", tileBg: "var(--ent-bg)",
+      hook: ["Be honest. You thought you knew this."],
+      blurb: [],
+      tagline: "5 questions \u00b7 no Googling. We can tell.",
+      questions: [
+        { question: "Burna Boy's Twice As Tall won Best Global Music Album at the 2021 Grammys. What else made that year different from every Grammy before it?",
+          options: ["That category got renamed that same year, from 'World Music' to 'Global Music', a change artists had pushed for", "It was the first year Africans were allowed to submit", "The category was brand new that year", "Voting moved online for the first time"],
+          correct: 0, context: "'World Music' had been the industry's catch-all for 'everything that isn't Western' for decades. 2021 was the year the Recording Academy finally renamed it 'Global Music', after years of artists and executives calling the old name out.",
+          gapLine: "Burna Boy's 2021 Grammy win landed the same year the category got renamed from 'World Music' to 'Global Music'" },
+        { question: "Wizkid's \u201cEssence\u201d made Nigerian music history in 2021. What did it actually do?",
+          options: ["First Nigerian song to reach the Billboard Hot 100 Top 10", "First Nigerian song ever released outside Nigeria", "First Nigerian performance at Coachella", "First Afrobeats song to win a Grammy"],
+          correct: 0, context: "It was the Justin Bieber remix, featuring Tems, that broke into the Hot 100's top 10, the first Nigerian song ever to get that far on the chart.",
+          gapLine: "Wizkid's 'Essence' remix was the first Nigerian song ever in the Billboard Hot 100's top 10" },
+        { question: "Tems became the first Nigerian musician ever nominated for an Oscar. What was the nomination for?",
+          options: ["Acting in a Nollywood film", "Co-writing \u201cLift Me Up,\u201d performed by Rihanna for Black Panther: Wakanda Forever", "Producing a documentary score", "A Best New Artist category"],
+          correct: 1, context: "She co-wrote the song with Rihanna, Ryan Coogler and Ludwig G\u00f6ransson, as a tribute to Chadwick Boseman. It was nominated for Best Original Song at the 2023 Oscars.",
+          gapLine: "Tems got Nigeria's first-ever Oscar nomination for co-writing a Rihanna song, not for acting" },
+        { question: "Nollywood is often called the world's second-largest film industry by output. Second to who?",
+          options: ["Hollywood, USA", "Bollywood, India", "South Korea's film industry", "It's actually first"],
+          correct: 1, context: "Nollywood releases roughly 2,500 films a year, more than Hollywood does. Only Bollywood, India's film industry, puts out more.",
+          gapLine: "Nollywood puts out more films a year than Hollywood, only Bollywood makes more" },
+        { question: "What's actually the difference between \u201cAfrobeat\u201d and \u201cAfrobeats\u201d?",
+          options: ["They're just two spellings of the same thing", "Afrobeat is Fela Kuti's original jazz-funk genre from the 60s and 70s, Afrobeats is the modern pop sound", "Afrobeat is Nigerian, Afrobeats is South African", "Afrobeats came first, Afrobeat came after"],
+          correct: 1, context: "Fela Kuti created Afrobeat, a jazz-funk fusion, decades before Afrobeats existed as a genre. Different sound, different generation, separated by one letter.",
+          gapLine: "Afrobeat is Fela Kuti's original genre, Afrobeats is the modern pop sound, one letter apart" }
+      ]
+    },
+    howthings: {
+      id: "howthings", title: "How Things Work", emoji: "\uD83C\uDFDB\uFE0F", accent: "var(--howthings)", tileBg: "var(--howthings-bg)",
+      hook: ["Okay, but\u2026 how does this actually work?"],
+      blurb: [],
+      tagline: "5 questions \u00b7 then we\u2019ll show you what\u2019s really happening",
+      questions: [
+        { question: "Nigeria \u201crebased\u201d its GDP and the economy suddenly looked bigger. What changed?",
+          options: ["The economy grew overnight", "Government printed more money", "The formula was updated to count things that already existed but weren't measured, like informal and tech sectors", "Nigeria gained new territory"],
+          correct: 2, context: "Nothing about the economy actually grew overnight, the formula measuring it got recalibrated to count sectors, like informal trade and tech, that were always there but never being measured.",
+          gapLine: "Nigeria's GDP 'growing' overnight was really just the formula finally counting sectors that already existed" },
+        { question: "When a politician \u201cdefects,\u201d what's actually changing?",
+          options: ["They get arrested", "They switch political parties while keeping the seat they were elected to", "They resign from politics", "They start a new country"],
+          correct: 1, context: "It's legal under certain conditions, which is exactly why it happens so often. A politician can switch parties and keep the seat they were elected to, which means power can shift without a single vote being cast.",
+          gapLine: "a politician can switch parties and keep the seat they were elected to, completely legally" },
+        { question: "The National Assembly \u201cpasses a bill.\u201d Does that make it law?",
+          options: ["Yes, automatically", "Not yet, it still needs the President's signature (assent) to become law", "No, it's just a suggestion with no legal weight", "It means the bill failed"],
+          correct: 1, context: "Passing a bill through the National Assembly is a major step, but it's not the final one. It still needs the President's signature, called assent, before it actually becomes law.",
+          gapLine: "a bill passing the National Assembly still isn't law until the President signs it" },
+        { question: "What's a \u201ccaretaker committee\u201d in Nigerian politics actually for?",
+          options: ["A permanent elected leadership body", "A temporary group installed to run a party or state structure until normal leadership resumes", "A group that manages public parks", "A UN oversight body"],
+          correct: 1, context: "It's a stopgap measure, a temporary group installed to hold things together until proper elections or a permanent leadership structure can be put in place.",
+          gapLine: "a 'caretaker committee' is just a temporary stopgap, not a permanent leadership body" },
+        { question: "What's the \u201cfederal character principle\u201d actually meant to ensure in government appointments?",
+          options: ["That only Abuja residents get top federal jobs", "Representation across Nigeria's different states and regions in government positions, not concentrated in one area", "A rule about federal versus state tax rates", "A dress code for federal workers"],
+          correct: 1, context: "It exists to stop government appointments from clustering around one region or group. The idea is that representation, and with it power, should be spread across Nigeria's states.",
+          gapLine: "the 'federal character principle' exists so government jobs don't cluster around one region" }
+      ]
+    }
+  };
+
+  var FOUNDER_STORY = {
+    paragraphs: [
+      "It started with Hantavirus.",
+      "I asked a friend, \u201cdid you hear about the Hantavirus?\u201d and she looked at me like I'd made up a disease. Funny, because this girl is never off her phone.",
+      "So I asked around. Same thing. Some hadn't heard of it. Others had seen the conversation and figured it was just another TikTok joke.",
+      "That's when it clicked. The problem was never that young people don't care what's happening. It's that the way information actually reaches us is a mess. A headline here. A tweet there. A TikTok explaining half the story. A meme about something nobody bothered to explain properly.",
+      "You can be online all day and still have no idea what's going on. And even when you do find the story, there's always a second question: okay, but what does this actually mean?",
+      "That's where OffScript came from. I wanted being informed to stop feeling like homework. Somewhere you catch up on what actually happened, get the context nobody put in the headline, and maybe find a song while you're at it.",
+      "We don't need more noise. We just need someone to make sense of it.",
+      "That's OffScript."
+    ]
+  };
+
+  var FILE_ORDER = ["money", "tech", "social", "culture", "entertainment", "howthings", "story"];
+
+  var ACCENT_DEEP = {
+    money: "var(--money-deep)", tech: "var(--tech-deep)", social: "var(--social-deep)",
+    culture: "var(--culture-deep)", entertainment: "var(--ent-deep)", howthings: "var(--howthings-deep)",
+    story: "var(--story-deep)"
+  };
+
+  var app = document.getElementById("app");
+
+  function loadProgress() {
+    try { var raw = localStorage.getItem(STORAGE_KEY); return raw ? JSON.parse(raw) : {}; }
+    catch (e) { return {}; }
+  }
+  function saveProgress(p) { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(p)); } catch (e) {} }
+  function markDone(fileId, score, total) { var p = loadProgress(); p[fileId] = { done: true, score: score, total: total }; saveProgress(p); }
+  function markStoryRead() { var p = loadProgress(); p.story = { done: true }; saveProgress(p); }
+  function totalCollected() {
+    var p = loadProgress(); var count = 0;
+    FILE_ORDER.forEach(function (k) { if (p[k] && p[k].done) count++; });
+    return count;
+  }
+  function aggregateScore() {
+    var progress = loadProgress(); var sum = 0, total = 0;
+    FILE_ORDER.forEach(function (k) {
+      if (k === "story") return;
+      total += CASE_FILES[k].questions.length;
+      if (progress[k] && progress[k].done) sum += progress[k].score;
+    });
+    return { sum: sum, total: total };
+  }
+  function shareLink() { return window.location.href.split("#")[0].split("?")[0]; }
+
+  /* ---------------- ANALYTICS ----------------
+     Fires GA4 events if gtag is already loaded on this page (either from a
+     global snippet elsewhere, or add your Measurement ID's script tag to
+     <head> yourself). Also pushes to dataLayer for GTM setups. Never throws
+     if neither is present, so this is safe to ship either way. */
+  function trackEvent(name, params) {
+    try {
+      if (typeof window.gtag === "function") window.gtag("event", name, params || {});
+      if (window.dataLayer && typeof window.dataLayer.push === "function") {
+        window.dataLayer.push(Object.assign({ event: name }, params || {}));
+      }
+    } catch (e) {}
+  }
+
+  /* ---------------- EMAIL CAPTURE (MailerLite) ----------------
+     One persistent, off-screen embed instance that gets *moved* (not re-created)
+     into the join screen. This avoids relying on MailerLite's universal.js
+     re-scanning HTML that gets injected later via innerHTML, since appendChild
+     on an already-rendered node preserves it, it doesn't re-fetch or reset it.
+     Appended to <body> directly (not #app) so it survives every app.innerHTML
+     re-render in between visits to the join screen. */
+  var mlEmbedHost = document.createElement("div");
+  mlEmbedHost.className = "ml-embedded";
+  mlEmbedHost.setAttribute("data-form", "VQHHjH");
+  mlEmbedHost.style.position = "absolute";
+  mlEmbedHost.style.left = "-9999px";
+  mlEmbedHost.style.top = "0";
+  document.body.appendChild(mlEmbedHost);
+
+  /* If the embed hasn't actually rendered anything within a short window (slow
+     network, ad-blocker, MailerLite hiccup), drop in a real link so nobody's
+     left staring at a blank box. Self-heals if the embed renders late. */
+  function revealJoinFallback(slot) {
+    if (slot.querySelector(".join-fallback-link")) return;
+    mlEmbedHost.style.display = "none";
+    var link = document.createElement("a");
+    link.href = "https://theoffscript.page/#join";
+    link.className = "join-fallback-link";
+    link.textContent = "Continue to signup \u2192";
+    slot.appendChild(link);
+  }
+  var mlEmbedObserver = new MutationObserver(function () {
+    if (mlEmbedHost.children.length > 0) {
+      mlEmbedHost.style.display = "";
+      var parent = mlEmbedHost.parentElement;
+      var link = parent && parent.querySelector(".join-fallback-link");
+      if (link) link.remove();
+    }
+  });
+  mlEmbedObserver.observe(mlEmbedHost, { childList: true });
+
+  /* ---------------- JOIN (its own full screen, not a new tab, not an inline reveal) ---------------- */
+  function renderJoin(context) {
+    trackEvent("check_cta_click", { context: context });
+    app.innerHTML =
+      '<div class="topbar"><button class="back-link" id="back-hub-join">\u2190 Dossier</button></div>' +
+      '<div class="join-shell">' +
+        '<span class="join-kicker">\uD83D\uDCEC An OffScript thing</span>' +
+        '<h1 class="join-title">Get the free weekly drop</h1>' +
+        '<p class="join-sub">News, culture, money, tech, explained exactly like the file you just read. Straight to your inbox, every week.</p>' +
+        '<div class="join-slot" id="join-slot"></div>' +
+      '</div>';
+    document.getElementById("back-hub-join").addEventListener("click", renderHub);
+    var slot = document.getElementById("join-slot");
+    mlEmbedHost.style.position = "static";
+    mlEmbedHost.style.left = "auto";
+    mlEmbedHost.style.display = "";
+    slot.appendChild(mlEmbedHost);
+    trackEvent("check_cta_view", { context: context });
+    setTimeout(function () {
+      if (mlEmbedHost.children.length === 0) revealJoinFallback(slot);
+    }, 1200);
+    window.scrollTo(0, 0);
+  }
+
+  function wireJoinButton(ctaId, context) {
+    var cta = document.getElementById(ctaId);
+    if (!cta) return;
+    cta.addEventListener("click", function () { renderJoin(context); });
+  }
+
+  /* ---------------- HUB ---------------- */
+  function renderHub() {
+    var progress = loadProgress();
+    var total = FILE_ORDER.length;
+    var collected = totalCollected();
+    var allDone = collected >= total;
+
+    var dotsHtml = "";
+    for (var d = 0; d < total; d++) { dotsHtml += '<span class="dossier-dot ' + (d < collected ? "filled" : "") + '"></span>'; }
+
+    var bannerHtml = "";
+    if (allDone) {
+      var agg = aggregateScore();
+      bannerHtml =
+        '<div class="complete-banner intro-reveal" style="animation-delay:0.36s">' +
+          '<div class="cb-eyebrow">Dossier complete</div>' +
+          '<div class="cb-title">' + agg.sum + '/' + agg.total + ' across the whole thing</div>' +
+          '<div class="cb-sub">Same gap, six areas of your life. That\u2019s the news being a mess.</div>' +
+          '<div class="capture-block">' +
+            '<button type="button" class="capture-cta" id="dossier-capture-cta">Get OffScript, free \u2192</button>' +
+          '</div>' +
+          '<button class="btn-share-dossier" id="share-dossier">Share your Dossier</button>' +
+        '</div>';
+    }
+
+    var tabPreviewHtml = '<div class="tab-preview intro-reveal" style="animation-delay:0.4s">' +
+      FILE_ORDER.map(function (key) {
+        var emoji = key === "story" ? "\uD83D\uDC8C" : CASE_FILES[key].emoji;
+        var accent = key === "story" ? "var(--story)" : CASE_FILES[key].accent;
+        return '<span class="tab-chip" style="background:' + accent + '">' + emoji + '</span>';
+      }).join("") +
+    '</div>';
+
+    var introSlide =
+      '<section class="feed-slide intro-slide">' +
+        '<a href="https://theoffscript.page" class="back-link intro-back">\u2190 theoffscript.page</a>' +
+        '<div class="intro-content">' +
+          '<span class="eyebrow intro-reveal" style="animation-delay:0.05s">An OffScript thing</span>' +
+          '<h1 class="hub-title intro-reveal" style="animation-delay:0.15s">The OffScript <span class="dot-o">Dossier</span></h1>' +
+          '<p class="hub-sub intro-reveal" style="animation-delay:0.24s">You\u2019re online all day. Let\u2019s see how much of it actually landed. Seven files, pick one, trust your gut.</p>' +
+          '<div class="dossier-meter intro-reveal" style="animation-delay:0.32s"><span class="dossier-meter-label">' + collected + '/' + total + ' collected</span><div class="dossier-dots">' + dotsHtml + '</div></div>' +
+          bannerHtml +
+          tabPreviewHtml +
+          '<div class="feed-hint intro-reveal"><span>scroll to begin</span><span class="chevron-stack"><i></i><i></i><i></i></span></div>' +
+        '</div>' +
+      '</section>';
+
+    var fileSlides = FILE_ORDER.map(function (key, i) {
+      var num = i + 1;
+      if (key === "story") {
+        var done = progress.story && progress.story.done;
+        return '<section class="feed-slide file-slide story-slide ' + (done ? "done" : "") + '" id="slide-story">' +
+          '<span class="feed-check">\u2713</span><span class="feed-index">' + num + ' / ' + total + '</span>' +
+          '<div class="file-card-stack" style="--card-accent: var(--story); --card-accent-deep: ' + ACCENT_DEEP.story + '">' +
+            '<span class="folder-tab">FILE 0' + num + '</span>' +
+            '<div class="file-card">' +
+            '<span class="feed-kicker">' + "\uD83D\uDC8C Why This Exists" + '</span>' +
+            '<p class="feed-hook">Okay. Last file, no quiz.</p>' +
+            '<p class="feed-blurb">Just the story behind OffScript, and why we built it.</p>' +
+            '<p class="feed-meta">Founder\u2019s file \u00b7 final file</p>' +
+            '<button class="feed-open-btn" data-nav="story">' + (done ? "Read again" : "Open file") + ' \u2192</button>' +
+          '</div></div>' +
+          (num < total ? '<div class="feed-hint"><span>next file</span><span class="chevron-stack"><i></i><i></i><i></i></span></div>' : '') +
+        '</section>';
+      }
+      var f = CASE_FILES[key];
+      var p = progress[key];
+      var isDone = p && p.done;
+      var hookHtml = (f.hook || []).map(function (line) { return '<p class="feed-hook">' + line + '</p>'; }).join("");
+      var blurbHtml = (f.blurb || []).map(function (line) { return '<p class="feed-blurb">' + line + '</p>'; }).join("");
+      return '<section class="feed-slide file-slide ' + (isDone ? "done" : "") + '" id="slide-' + key + '" style="background: ' + f.accent + '">' +
+        '<span class="feed-check">\u2713</span><span class="feed-index">' + num + ' / ' + total + '</span>' +
+        '<div class="file-card-stack" style="--card-accent: ' + f.accent + '; --card-accent-deep: ' + ACCENT_DEEP[key] + '">' +
+          '<span class="folder-tab">FILE 0' + num + '</span>' +
+          '<div class="file-card">' +
+          '<span class="feed-kicker">' + f.emoji + ' ' + f.title.toUpperCase() + '</span>' +
+          hookHtml + blurbHtml +
+          '<p class="feed-meta">' + (isDone ? p.score + "/" + p.total + " \u00b7 collected" : f.tagline) + '</p>' +
+          '<button class="feed-open-btn" data-nav="quiz" data-file="' + key + '">' + (isDone ? "Replay file" : "Open file") + ' \u2192</button>' +
+        '</div></div>' +
+        (num < total ? '<div class="feed-hint"><span>next file</span><span class="chevron-stack"><i></i><i></i><i></i></span></div>' : '') +
+      '</section>';
+    }).join("");
+
+    app.innerHTML = '<div class="feed" id="hub-feed">' + introSlide + fileSlides + '</div>';
+
+    if (allDone) {
+      wireJoinButton("dossier-capture-cta", "dossier_complete");
+      trackEvent("check_dossier_complete", { score: aggregateScore().sum, total: aggregateScore().total });
+    }
+
+    app.querySelectorAll("[data-nav]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var nav = btn.getAttribute("data-nav");
+        if (nav === "story") { renderStory(); } else { startQuiz(btn.getAttribute("data-file")); }
+      });
+    });
+    var shareBtn = document.getElementById("share-dossier");
+    if (shareBtn) {
+      shareBtn.addEventListener("click", function () {
+        trackEvent("check_share_click", { context: "dossier" });
+        var text = "I collected the whole OffScript Dossier \uD83D\uDDC2\uFE0F\u2705 bet you can't. " + shareLink();
+        window.open("https://wa.me/?text=" + encodeURIComponent(text), "_blank");
+      });
+    }
+  }
+
+  /* ---------------- QUIZ ---------------- */
+  var quizState = null;
+
+  function shuffleArray(arr) {
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  /* Fresh order every attempt: question order AND each question's option order
+     get reshuffled, with the correct index remapped to match. Replaying a file
+     shouldn't feel identical to the first time through. */
+  function shuffledQuestions(fileId) {
+    var original = CASE_FILES[fileId].questions;
+    return shuffleArray(original).map(function (q) {
+      var order = shuffleArray(q.options.map(function (_, i) { return i; }));
+      return {
+        question: q.question,
+        options: order.map(function (origIdx) { return q.options[origIdx]; }),
+        correct: order.indexOf(q.correct),
+        context: q.context,
+        gapLine: q.gapLine
+      };
+    });
+  }
+
+  function startQuiz(fileId) {
+    quizState = { fileId: fileId, index: 0, score: 0, answered: false, missedQuestions: [], questions: shuffledQuestions(fileId) };
+    trackEvent("check_file_start", { file: fileId });
+    renderQuiz();
+  }
+
+  function renderQuiz() {
+    var f = CASE_FILES[quizState.fileId];
+    var q = quizState.questions[quizState.index];
+    var total = quizState.questions.length;
+
+    var segHtml = "";
+    for (var i = 0; i < total; i++) {
+      var pct = i < quizState.index ? "100%" : (i === quizState.index && quizState.answered ? "100%" : "0%");
+      segHtml += '<div class="segment"><i style="width:' + pct + '"></i></div>';
+    }
+
+    var optionsHtml = q.options.map(function (opt, i) {
+      return '<button class="option-card" type="button" data-i="' + i + '">' +
+        '<span class="option-letter">' + String.fromCharCode(65 + i) + '</span>' +
+        '<span class="opt-label">' + opt + '</span></button>';
+    }).join("");
+
+    app.innerHTML =
+      '<div class="quiz-shell" style="--accent:' + f.accent + '">' +
+        '<div class="quiz-topbar"><button class="back-link" id="back-hub">\u2190 Dossier</button><div class="segments">' + segHtml + '</div></div>' +
+        '<span class="file-badge">' + f.emoji + ' ' + f.title.toUpperCase() + ' \u00b7 ' + (quizState.index + 1) + '/' + total + '</span>' +
+        '<div class="card-stack"><div class="question-card">' +
+          '<h2 class="question-text">' + q.question + '</h2>' +
+          '<div class="scroll-hint">\u2193 scroll for options \u2193</div>' +
+          '<div class="options">' + optionsHtml + '</div>' +
+          '<div class="context-panel" id="context-panel"><div class="context-inner">' +
+            '<span class="stamp" id="stamp"></span><p class="context-text" id="context-text"></p>' +
+            '<p class="gap-callout" id="gap-callout" style="display:none;"></p></div>' +
+            '<button class="btn-next" id="next-btn">Next question \u2192</button></div>' +
+        '</div></div>' +
+      '</div>';
+
+    document.getElementById("back-hub").addEventListener("click", renderHub);
+    app.querySelectorAll(".option-card").forEach(function (btn) {
+      btn.addEventListener("click", function () { selectAnswer(parseInt(btn.getAttribute("data-i"), 10)); });
+    });
+    window.scrollTo(0, 0);
+  }
+
+  function selectAnswer(i) {
+    if (quizState.answered) return;
+    quizState.answered = true;
+
+    var f = CASE_FILES[quizState.fileId];
+    var q = quizState.questions[quizState.index];
+    var buttons = document.querySelectorAll(".option-card");
+    buttons.forEach(function (btn, idx) {
+      btn.classList.add("locked");
+      if (idx === q.correct) btn.classList.add("correct");
+      if (idx === i && i !== q.correct) btn.classList.add("wrong");
+    });
+
+    var isCorrect = i === q.correct;
+    if (isCorrect) {
+      quizState.score++;
+    } else {
+      quizState.missedQuestions.push({ index: quizState.index, gapLine: q.gapLine });
+    }
+    trackEvent("check_question_answered", { file: quizState.fileId, question_index: quizState.index, correct: isCorrect });
+
+    var hint = document.querySelector(".scroll-hint");
+    if (hint) hint.style.display = "none";
+
+    var stamp = document.getElementById("stamp");
+    stamp.textContent = isCorrect ? "NAILED IT \u2705" : "THE GAP \uD83E\uDEE3";
+    stamp.className = "stamp " + (isCorrect ? "is-correct" : "is-wrong");
+    document.getElementById("context-text").textContent = q.context;
+    document.getElementById("context-panel").classList.add("visible");
+
+    var gapCallout = document.getElementById("gap-callout");
+    if (!isCorrect && quizState.missedQuestions.length >= 2 && gapCallout) {
+      gapCallout.textContent = "That's " + quizState.missedQuestions.length + " now, same file. Not a you problem \u2014 an exposure problem.";
+      gapCallout.style.display = "block";
+    }
+
+    var total = quizState.questions.length;
+    var nextBtn = document.getElementById("next-btn");
+    nextBtn.textContent = quizState.index === total - 1 ? "See your file \u2192" : "Next question \u2192";
+    nextBtn.onclick = function () {
+      if (quizState.index < total - 1) {
+        quizState.index++; quizState.answered = false; renderQuiz();
+      } else {
+        markDone(quizState.fileId, quizState.score, total);
+        trackEvent("check_file_complete", { file: quizState.fileId, score: quizState.score, total: total });
+        renderFileComplete(quizState.fileId, quizState.score, total, quizState.missedQuestions);
+      }
+    };
+
+    var segs = document.querySelectorAll(".segment > i");
+    segs[quizState.index].style.width = "100%";
+    document.getElementById("context-panel").scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
+  function getBand(score, total) {
+    var pct = score / total;
+    if (pct <= 0.2) return {
+      title: "Certified Vibes-Only Reader",
+      body: "You know something's happening. You couldn't tell me what, though. That's not a you problem, that's an algorithm problem, it shows you everything and explains nothing. OffScript explains the nothing.",
+      cta: "Get the actual context, weekly"
+    };
+    if (pct <= 0.6) return {
+      title: "You\u2019ve Got the Headlines, Not the Story",
+      body: "You caught some of it. The rest is exactly the kind of thing that slips past almost everyone right now. That gap is the whole reason OffScript exists.",
+      cta: "Close the gap, one issue a week"
+    };
+    if (pct < 1) return {
+      title: "Suspiciously Informed",
+      body: "One gap, that's it. You're clearly already paying attention, OffScript just catches the rest.",
+      cta: "Stay this sharp, weekly"
+    };
+    return {
+      title: "Certified OffScript Material",
+      body: "Perfect file. Either you already read OffScript, or you should.",
+      cta: "Make it official, subscribe"
+    };
+  }
+
+  /* ---------------- FILE COMPLETE ---------------- */
+  function renderFileComplete(fileId, score, total, missedQuestions) {
+    var f = CASE_FILES[fileId];
+    var band = getBand(score, total);
+    var missed = missedQuestions || [];
+
+    app.innerHTML =
+      '<div class="complete-shell" style="--accent:' + f.accent + '">' +
+        '<div class="confetti-layer" id="confetti"></div>' +
+        '<div class="stamp-badge">' + f.emoji + '</div>' +
+        '<p class="complete-score">' + f.title + ' file \u00b7 <b>' + score + '/' + total + '</b></p>' +
+        '<h2 class="complete-title">' + band.title + '</h2>' +
+        '<p class="complete-body">' + band.body + '</p>' +
+        '<div class="capture-block">' +
+          '<button type="button" class="capture-cta" id="file-capture-cta">' + band.cta + ' \u2192</button>' +
+        '</div>' +
+        '<button class="btn-ghost" id="share-wa">Share your score \u2197</button>' +
+        '<button class="btn-ghost" id="back-hub-2">\u2190 Back to your Dossier</button>' +
+      '</div>';
+
+    wireJoinButton("file-capture-cta", "file_complete:" + fileId);
+    document.getElementById("back-hub-2").addEventListener("click", renderHub);
+
+    var textWA;
+    if (missed.length > 0 && missed[0].gapLine) {
+      textWA = "I just found out " + missed[0].gapLine + ". Bet you didn't know that either \uD83D\uDC40 " + shareLink();
+    } else {
+      textWA = "I " + score + "/" + total + "'d the " + f.title + " file of The OffScript Check. Bet you can't \uD83D\uDC40 " + shareLink();
+    }
+    document.getElementById("share-wa").addEventListener("click", function () {
+      trackEvent("check_share_click", { context: "file:" + fileId });
+      window.open("https://wa.me/?text=" + encodeURIComponent(textWA), "_blank");
+    });
+    burstConfetti(f.emoji);
+    window.scrollTo(0, 0);
+  }
+
+  function burstConfetti(emoji) {
+    var layer = document.getElementById("confetti");
+    if (!layer) return;
+    var pieces = ["\u2728", emoji, "\uD83C\uDF89", "\u2705", emoji];
+    for (var i = 0; i < 14; i++) {
+      var span = document.createElement("span");
+      span.className = "confetti-piece";
+      span.textContent = pieces[i % pieces.length];
+      var angle = (Math.PI * 2 * i) / 14 + Math.random() * 0.5;
+      var dist = 90 + Math.random() * 70;
+      span.style.setProperty("--dx", Math.cos(angle) * dist + "px");
+      span.style.setProperty("--dy", Math.sin(angle) * dist + "px");
+      span.style.setProperty("--rot", (Math.random() * 360 - 180) + "deg");
+      span.style.animationDelay = (Math.random() * 0.15) + "s";
+      layer.appendChild(span);
+    }
+  }
+
+  /* ---------------- STORY ---------------- */
+  function renderStory() {
+    markStoryRead();
+    var pHtml = FOUNDER_STORY.paragraphs.map(function (p) { return "<p>" + p + "</p>"; }).join("");
+    app.innerHTML =
+      '<div class="topbar"><button class="back-link" id="back-hub-3">\u2190 Dossier</button></div>' +
+      '<div class="story-shell"><span class="story-kicker">\uD83D\uDC8C FOUNDER\u2019S FILE</span>' +
+        '<h1 class="story-title">Why This Exists</h1><p class="story-byline">Aisha Onola, Founder &amp; Editor</p>' +
+        '<div class="story-body">' + pHtml + '</div>' +
+        '<div class="story-cta"><p>That\u2019s the whole reason The OffScript exists. Come see what we\u2019ve been making sense of.</p>' +
+        '<button type="button" id="story-join-cta" class="btn-primary" style="--accent: var(--story); max-width:280px; margin:0 auto;">Subscribe free \u2192</button></div>' +
+      '</div>';
+    document.getElementById("back-hub-3").addEventListener("click", renderHub);
+    wireJoinButton("story-join-cta", "story_complete");
+    window.scrollTo(0, 0);
+  }
+
+  renderHub();
+})();
+</script>
+
+</body>
+</html>
